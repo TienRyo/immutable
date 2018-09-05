@@ -31,4 +31,16 @@ jobs:
 
       # run tests!
       - run: npm test
+  test :
+    docker:
+      - image : "node:carbon"
+    steps :
+      - checkout
+      - run : npm install
 
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test
